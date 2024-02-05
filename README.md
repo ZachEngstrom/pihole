@@ -52,7 +52,7 @@ Here are the steps that I took to make my PiHole self-sufficient.
 
 1. Copy this file to the root of your Raspberry Pi or server: [pihole.sh](./pihole.sh)
 
-### Set These Scripts to Run Automatically Using Cron
+### Automatically Update and Send Emails Using Cron
 
 1. Run `sudo crontab -e` in your terminal
 1. Add the following code to the end of the file:<br><pre>55 1 * * 6 python pihole\_email\_before\_restart.py
