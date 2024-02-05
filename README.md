@@ -39,7 +39,7 @@ Here are the steps that I took to make my PiHole self-sufficient.
    - [pihole\_email\_before\_restart.py](./pihole_email_before_restart.py)
    - [pihole\_email\_after\_restart.py](./pihole_email_after_restart.py)
 1. Set the configs file by running `mv pihole_configs.example.json pihole_configs.json` in your terminal and then `sudo nano pihole_configs.json`.
-1. Use your arrow keys to navigate to the empty quotation marks and then fill in the appropriate values.
+1. Use your arrow keys to navigate to the values, remove the `REPLACE_WITH_THE_...` text and then fill in the appropriate values.
 1. You created the `from_addr` and `from_pass` when you followed the [Send an Email using Python](./docs/smtp.md) document.
 1. For the `to_addr`, I get the email message as a text to my phone. Here are some examples of how to do with with major cellular providers. Remember to replace "1234567890" with your cell phone number:
    - **AT&T**: 1234567890@txt.att.net

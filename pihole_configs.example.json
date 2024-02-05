@@ -1,8 +1,7 @@
-
 {
   "email": {
-    "from_pass": "",
-    "from_addr": "",
-    "to_addr": ""
+    "from_pass": "REPLACE_WITH_THE_SENDER_EMAIL",
+    "from_addr": "REPLACE_WITH_THE_SENDER_EMAIL_APP_PASSWORD",
+    "to_addr": "REPLACE_WITH_THE_RECIPIENT_EMAIL"
   }
 }
