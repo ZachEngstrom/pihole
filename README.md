@@ -1,93 +1,70 @@
-# pihole
-
-
-
-## Getting started
-
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/engza/pihole.git
-git branch -M main
-git push -uf origin main
+ ____ ___ _   _  ___  _     _____
+|  _ \_ _| | | |/ _ \| |   | ____|
+| |_) | || |_| | | | | |   |  _|
+|  __/| ||  _  | |_| | |___| |___
+|_|  |___|_| |_|\___/|_____|_____|
 ```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlab.com/engza/pihole/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
 
 ## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+This repository assumes that you have PiHole up and running. Consider using the instructional written by [CrossTalk Solutions](https://www.crosstalksolutions.com/the-worlds-greatest-pi-hole-and-unbound-tutorial-2023/) for the initial setup.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+## What is PiHole?
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+Network-wide ad blocking via your own Linux hardware
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+The Pi-hole® is a DNS sinkhole that protects your devices from unwanted content, without installing any client-side software.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+- **Easy-to-install**: our versatile installer walks you through the process and takes less than ten minutes
+- **Resolute**: content is blocked in non-browser locations, such as ad-laden mobile apps and smart TVs
+- **Responsive**: seamlessly speeds up the feel of everyday browsing by caching DNS queries
+- **Lightweight**: runs smoothly with [minimal hardware and software requirements](https://docs.pi-hole.net/main/prerequisites/)
+- **Robust**: a command-line interface that is quality assured for interoperability
+- **Insightful**: a beautiful responsive Web Interface dashboard to view and control your Pi-hole
+- **Versatile**: can optionally function as a DHCP server, ensuring all your devices are protected automatically
+- **Scalable**: capable of handling hundreds of millions of queries when installed on server-grade hardware
+- **Modern**: blocks ads over both IPv4 and IPv6
+- **Free**: open-source software which helps ensure you are the sole person in control of your privacy
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+## Automation
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+Here are the steps that I took to make my PiHole self-sufficient.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+### Send an Email using Python
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+1. Read through the entire [Send an Email using Python](./docs/smtp.md) document and then go back and follow the instructions up until "The Email-Sending Script".
+1. Copy these 3 files to the root of your Raspberry Pi or server:
+   - [pihole\_configs.example.json](./pihole_configs.example.json)
+   - [pihole\_email\_before\_restart.py](./pihole_email_before_restart.py)
+   - [pihole\_email\_after\_restart.py](./pihole_email_after_restart.py)
+1. Set the configs file by running `mv pihole_configs.example.json pihole_configs.json` in your terminal and then `sudo nano pihole_configs.json`.
+1. Use your arrow keys to navigate to the empty quotation marks and then fill in the appropriate values.
+1. You created the `from_addr` and `from_pass` when you followed the [Send an Email using Python](./docs/smtp.md) document.
+1. For the `to_addr`, I get the email message as a text to my phone. Here are some examples of how to do with with major cellular providers. Remember to replace "1234567890" with your cell phone number:
+   - **AT&T**: 1234567890@txt.att.net
+   - **Verizon**: 1234567890@vtext.com
+   - **T-Mobile**: 1234567890@tmomail.net
+1. Once you have all 3 values filled in, you can press <kbd>[^X]</kbd>, <kbd>[y]</kbd> and <kbd>[return]</kbd> to save your changes and exit the file.
+1. Test that the emails work by running `python pihole_email_before_restart.py` in your terminal.
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+### Update Script Using Bash
 
-## License
-For open source projects, say how it is licensed.
+1. Copy this file to the root of your Raspberry Pi or server: [pihole.sh](./pihole.sh)
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+### Set These Scripts to Run Automatically Using Cron
+
+1. Run `sudo crontab -e` in your terminal
+1. Add the following code to the end of the file:<br><pre>55 1 * * 6 python pihole\_email\_before\_restart.py
+0 2 * * 6 ./pihole.sh >> pihole.log 2>&1
+30 2 * * 6 python pihole\_email\_after\_restart.py</pre>
+   - The 1st line is saying to run the `pihole_email_before_restart.py` file every Saturday morning at 1:55AM.
+   - The 2nd line is saying to run the `pihole.sh` file every Saturday morning at 2:00AM and capture the output in the `pihole.log` file (it will automatically get created if it's not already there).
+   - The 3rd line is saying to run the `pihole_email_after_restart.py` file every Saturday morning at 2:30AM.
+   - Use [crontab.guru](https://crontab.guru/) if you'd like to adjust when these scripts run.
+1. Now press <kbd>[^X]</kbd>, <kbd>[y]</kbd> and <kbd>[return]</kbd> to save your changes and exit the file.
+1. Validate that the file saved by running `sudo crontab -l` in your terminal. You should see the values that you entered
+
+## To Do / Consideration
+
+- Set the email pass as an environment variable instead of in the config file - [Python Environment Variables](https://networkdirection.net/python/resources/env-variable/)
