@@ -84,7 +84,7 @@ If you're using another email provider, check how to create an app password. You
 
 ## The Email-Sending Script
 
-Create a new JSON file called *configs.py* and copy the following code.
+Create a new JSON file called *configs.json* and copy the following code.
 
 You need to insert your sender email details and the recipient email.
 
