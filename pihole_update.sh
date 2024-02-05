@@ -1,7 +1,7 @@
 #!/bin/bash
 
 datetime=$(date +"%Y-%m-%d %T")
-printf "\n\n[%s] INFO: pihole.sh initiated\n\n" "${datetime}"
+printf "\n\n[%s] INFO: pihole_update.sh initiated\n\n" "${datetime}"
 
 datetime=$(date +"%Y-%m-%d %T")
 printf "[%s] INFO: running 'sudo apt update'\n" "${datetime}"
@@ -29,6 +29,6 @@ sudo pihole -g
 
 datetime=$(date +"%Y-%m-%d %T")
 printf "\n[%s] INFO: running 'sudo reboot'\n\n" "${datetime}"
-printf "[%s] INFO: pihole.sh finished\n\n" "${datetime}"
+printf "[%s] INFO: pihole_update.sh finished\n\n" "${datetime}"
 printf "********************************************************************************\n\n"
 sudo reboot
