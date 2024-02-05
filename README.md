@@ -46,7 +46,7 @@ Here are the steps that I took to make my PiHole self-sufficient.
    - **Verizon**: 1234567890@vtext.com
    - **T-Mobile**: 1234567890@tmomail.net
 1. Once you have all 3 values filled in, you can press <kbd>[^X]</kbd>, <kbd>[y]</kbd> and <kbd>[return]</kbd> to save your changes and exit the file.
-1. Test that the emails work by running `python pihole_email_before_restart.py` in your terminal.
+1. Test that the email files work by running `python pihole_email_before_restart.py` and `python pihole_email_after_restart.py` in your terminal and then either checking your inbox or watching your phone for a text (depending on the value you entered for the `to_addr`).
 
 ### Update Script Using Bash
 
