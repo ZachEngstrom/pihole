@@ -50,7 +50,7 @@ Here are the steps that I took to make my PiHole self-sufficient.
 
 ### Update Script Using Bash
 
-1. Copy this file to the root of your Raspberry Pi or server: [pihole_update.sh](./pihole_update.sh)
+1. Copy the [pihole_update.sh](./pihole_update.sh) file to the root of your Raspberry Pi or server. No editing necessary.
 
 ### Automatically Update and Send Emails Using Cron
 
