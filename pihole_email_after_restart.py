@@ -31,7 +31,7 @@ def display_time(seconds, granularity=2):
             result.append("{} {}".format(value, name))
     return ', '.join(result[:granularity])
 
-#Set the sender email and password and recipient emaiç
+#Set the sender email and password and recipient email
 from_email_addr = config['email']['from_addr']
 from_email_pass = config['email']['from_pass']
 to_email_addr = config['email']['to_addr']

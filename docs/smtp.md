@@ -98,10 +98,10 @@ from email.message import EmailMessage
 with open('pihole_configs.json', 'r') as file:
     config = json.load(file)
 
-#Set the sender email and password and recipient emaiç
 from_email_addr ="REPLACE_WITH_THE_SENDER_EMAIL"
 from_email_pass ="REPLACE_WITH_THE_SENDER_EMAIL_APP_PASSWORD"
 to_email_addr ="REPLACE_WITH_THE_RECIPIENT_EMAIL"
+#Set the sender email and password and recipient email
 
 # Create a message object
 msg = EmailMessage()
