@@ -16,7 +16,7 @@ printf "\n[%s] INFO: running 'sudo apt upgrade -y'\n" "$(datetime)"
 sudo apt upgrade -y
 
 printf "\n[%s] INFO: running 'sudo apt autoremove -y'\n" "$(datetime)"
-sudo apt autoremove
+sudo apt autoremove -y
 
 printf "\n[%s] INFO: running 'sudo pihole -up'\n\n" "$(datetime)"
 sudo pihole -up
