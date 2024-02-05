@@ -8,7 +8,7 @@
 
 ## Description
 
-This repository assumes that you have PiHole up and running. Consider using the instructional written by [CrossTalk Solutions](https://www.crosstalksolutions.com/the-worlds-greatest-pi-hole-and-unbound-tutorial-2023/) for the initial setup.
+This repository assumes that you have PiHole up and running. Consider using the instructional written by [CrossTalk Solutions](https://www.crosstalksolutions.com/the-worlds-greatest-pi-hole-and-unbound-tutorial-2023/) for the initial setup. The [YouTube video](https://youtu.be/cE21YjuaB6o) worked well for me.
 
 ## What is PiHole?
 
