@@ -8,24 +8,7 @@
 
 ## Description
 
-This repository assumes that you have PiHole up and running. Consider using the instructional written by [CrossTalk Solutions](https://www.crosstalksolutions.com/the-worlds-greatest-pi-hole-and-unbound-tutorial-2023/) for the initial setup. The [YouTube video](https://youtu.be/cE21YjuaB6o) worked well for me.
-
-## What is PiHole?
-
-Network-wide ad blocking via your own Linux hardware
-
-The Pi-hole® is a DNS sinkhole that protects your devices from unwanted content, without installing any client-side software.
-
-- **Easy-to-install**: our versatile installer walks you through the process and takes less than ten minutes
-- **Resolute**: content is blocked in non-browser locations, such as ad-laden mobile apps and smart TVs
-- **Responsive**: seamlessly speeds up the feel of everyday browsing by caching DNS queries
-- **Lightweight**: runs smoothly with [minimal hardware and software requirements](https://docs.pi-hole.net/main/prerequisites/)
-- **Robust**: a command-line interface that is quality assured for interoperability
-- **Insightful**: a beautiful responsive Web Interface dashboard to view and control your Pi-hole
-- **Versatile**: can optionally function as a DHCP server, ensuring all your devices are protected automatically
-- **Scalable**: capable of handling hundreds of millions of queries when installed on server-grade hardware
-- **Modern**: blocks ads over both IPv4 and IPv6
-- **Free**: open-source software which helps ensure you are the sole person in control of your privacy
+This repository assumes that you have [PiHole](https://docs.pi-hole.net/) up and running. Consider using the instructional written by [CrossTalk Solutions](https://www.crosstalksolutions.com/the-worlds-greatest-pi-hole-and-unbound-tutorial-2023/) for the initial setup. The [YouTube video](https://youtu.be/cE21YjuaB6o) worked well for me.
 
 ## Ad Lists
 
