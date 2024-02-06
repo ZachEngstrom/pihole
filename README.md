@@ -41,12 +41,12 @@ This repository provides scripts and configuration files to automate [PiHole](ht
 
 #### Send an Email using Python
 
-1. Read through the entire [Send an Email using Python](./docs/smtp.md) document and then go back and follow the instructions through creating an email app password.
+1. [Send an Email using Python](./docs/smtp.md) - follow the instructions through creating an email app password.
 1. Copy these 3 files to the root of your Raspberry Pi or server:
    - `cp pihole/pihole_configs.example.json pihole_configs.json`
    - `cp pihole/pihole_email_before_restart.py pihole_email_before_restart.py`
    - `cp pihole/pihole_email_after_restart.py pihole_email_after_restart.py`
-1. Edit the configs file - `sudo nano pihole_configs.json`.
+1. Edit the configs file - `sudo nano pihole_configs.json`
    1. Use your arrow keys to navigate to the 3 values, remove the `REPLACE_WITH_THE_...` text and then fill in the appropriate values.
    1. You created the `from_addr` and `from_pass` values when you followed the [Send an Email using Python](./docs/smtp.md) document.
    1. For the `to_addr` value, I get the email message as a text to my phone. Here are some examples of how to do with with major cellular providers. Remember to replace "REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER" with your cell phone number:
@@ -74,7 +74,6 @@ You can now run this script any time by running `./pihole_update.sh` in your ter
    - The 1st line is saying to run the *pihole_email_before_restart.py* file every Saturday morning at 1:55AM.
    - The 2nd line is saying to run the *pihole_update.sh* file every Saturday morning at 2:00AM and capture the output in the *pihole.log* file (it will automatically get created if it's not already there).
    - The 3rd line is saying to run the `pihole_email_after_restart.py` file every Saturday morning at 2:30AM.
-   - Use [crontab.guru](https://crontab.guru/) if you'd like to adjust when these scripts run.
 1. Now press <kbd>[^X]</kbd>, <kbd>[y]</kbd> and <kbd>[return]</kbd> to save your changes and exit the file.
 1. Validate that the file saved by running `sudo crontab -l` in your terminal. You should see the values that you entered
 
@@ -88,6 +87,7 @@ You can now run this script any time by running `./pihole_update.sh` in your ter
    - `scp PI_USER_NAME@PI_IP_ADDRESS:pihole.log ./`
 - Watch the *pihole.log* in real time as the update script is running (typically used when manually intiating the update script)
    - `tail -f pihole.log`
+- Use [crontab.guru](https://crontab.guru/) if you'd like to adjust when your cron jobs run.
 
 ## Ad Lists
 
