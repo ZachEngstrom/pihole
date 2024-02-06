@@ -59,10 +59,12 @@ Here are the steps that I took to make my PiHole self-sufficient.
 1. Set the configs file by running `mv pihole_configs.example.json pihole_configs.json` in your terminal and then `sudo nano pihole_configs.json`.
 1. Use your arrow keys to navigate to the values, remove the `REPLACE_WITH_THE_...` text and then fill in the appropriate values.
 1. You created the `from_addr` and `from_pass` when you followed the [Send an Email using Python](./docs/smtp.md) document.
-1. For the `to_addr`, I get the email message as a text to my phone. Here are some examples of how to do with with major cellular providers. Remember to replace "1234567890" with your cell phone number:
-   - **AT&T**: 1234567890@txt.att.net
-   - **Verizon**: 1234567890@vtext.com
-   - **T-Mobile**: 1234567890@tmomail.net
+1. For the `to_addr`, I get the email message as a text to my phone. Here are some examples of how to do with with major cellular providers. Remember to replace "REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER" with your cell phone number:
+   - **AT&T**: REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER@txt.att.net
+   - **Verizon**: REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER@vtext.com
+   - **T-Mobile**: REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER@tmomail.net
+   - [notepage.net/smtp.htm](https://www.notepage.net/smtp.htm)
+   - [avtech.com/articles/138/list-of-email-to-sms-addresses](https://avtech.com/articles/138/list-of-email-to-sms-addresses/)
 1. Once you have all 3 values filled in, you can press <kbd>[^X]</kbd>, <kbd>[y]</kbd> and <kbd>[return]</kbd> to save your changes and exit the file.
 1. Test that the email files work by running `python pihole_email_before_restart.py` and `python pihole_email_after_restart.py` in your terminal and then either checking your inbox or watching your phone for a text (depending on the value you entered for the `to_addr`).
 
