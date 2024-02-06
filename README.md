@@ -39,8 +39,6 @@ This repository provides scripts and configuration files to automate [PiHole](ht
    - Gitlab: `git clone https://gitlab.com/engza/pihole.git`
 1. Follow the instructions below
 
-Here are the steps that I took to make my PiHole self-sufficient:
-
 #### Send an Email using Python
 
 1. Read through the entire [Send an Email using Python](./docs/smtp.md) document and then go back and follow the instructions up until "The Email-Sending Script".
