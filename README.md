@@ -71,11 +71,11 @@ You can now run this script any time by running `./pihole_update.sh` in your ter
 1. Add the following code to the end of the file:<br><pre>55 1 * * 6 python pihole\_email\_before\_restart.py
 0 2 * * 6 ./pihole_update.sh >> pihole.log 2>&1
 30 2 * * 6 python pihole\_email\_after\_restart.py</pre>
-   - The 1st line is saying to run the *pihole_email_before_restart.py* file every Saturday morning at 1:55AM.
-   - The 2nd line is saying to run the *pihole_update.sh* file every Saturday morning at 2:00AM and capture the output in the *pihole.log* file (it will automatically get created if it's not already there).
-   - The 3rd line is saying to run the `pihole_email_after_restart.py` file every Saturday morning at 2:30AM.
+   - The 1st line runs *pihole_email_before_restart.py* every Saturday at 1:55 AM.
+   - The 2nd line runs *pihole_update.sh* every Saturday at 2:00 AM and captures the output in the *pihole.log* file (it will automatically get created if it's not already there).
+   - The 3rd line runs `pihole_email_after_restart.py` every Saturday at 2:30 AM.
 1. Now press <kbd>[^X]</kbd>, <kbd>[y]</kbd> and <kbd>[return]</kbd> to save your changes and exit the file.
-1. Validate that the file saved by running `sudo crontab -l` in your terminal. You should see the values that you entered
+1. Validate that the file saved by running `sudo crontab -l` in your terminal. You should see the lines that you added.
 
 ## Helpful
 
