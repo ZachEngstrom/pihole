@@ -41,15 +41,15 @@ This repository provides scripts and configuration files to automate [PiHole](ht
 
 #### Send an Email using Python
 
-1. Read through the entire [Send an Email using Python](./docs/smtp.md) document and then go back and follow the instructions up until "The Email-Sending Script".
+1. Read through the entire [Send an Email using Python](./docs/smtp.md) document and then go back and follow the instructions through creating an email app password.
 1. Copy these 3 files to the root of your Raspberry Pi or server:
    - `cp pihole/pihole_configs.example.json pihole_configs.json`
    - `cp pihole/pihole_email_before_restart.py pihole_email_before_restart.py`
    - `cp pihole/pihole_email_after_restart.py pihole_email_after_restart.py`
 1. Edit the configs file - `sudo nano pihole_configs.json`.
-   1. Use your arrow keys to navigate to the values, remove the `REPLACE_WITH_THE_...` text and then fill in the appropriate values.
-   1. You created the `from_addr` and `from_pass` when you followed the [Send an Email using Python](./docs/smtp.md) document.
-   1. For the `to_addr`, I get the email message as a text to my phone. Here are some examples of how to do with with major cellular providers. Remember to replace "REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER" with your cell phone number:
+   1. Use your arrow keys to navigate to the 3 values, remove the `REPLACE_WITH_THE_...` text and then fill in the appropriate values.
+   1. You created the `from_addr` and `from_pass` values when you followed the [Send an Email using Python](./docs/smtp.md) document.
+   1. For the `to_addr` value, I get the email message as a text to my phone. Here are some examples of how to do with with major cellular providers. Remember to replace "REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER" with your cell phone number:
       - **AT&T**: REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER@txt.att.net
       - **Verizon**: REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER@vtext.com
       - **T-Mobile**: REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER@tmomail.net
