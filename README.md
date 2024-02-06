@@ -64,12 +64,26 @@ You can now run this script any time by running `./pihole_update.sh` in your ter
 1. Add the following code to the end of the file:<br><pre>55 1 * * 6 python pihole\_email\_before\_restart.py
 0 2 * * 6 ./pihole_update.sh >> pihole.log 2>&1
 30 2 * * 6 python pihole\_email\_after\_restart.py</pre>
-   - The 1st line is saying to run the `pihole_email_before_restart.py` file every Saturday morning at 1:55AM.
-   - The 2nd line is saying to run the `pihole_update.sh` file every Saturday morning at 2:00AM and capture the output in the `pihole.log` file (it will automatically get created if it's not already there).
+   - The 1st line is saying to run the *pihole_email_before_restart.py* file every Saturday morning at 1:55AM.
+   - The 2nd line is saying to run the *pihole_update.sh* file every Saturday morning at 2:00AM and capture the output in the *pihole.log* file (it will automatically get created if it's not already there).
    - The 3rd line is saying to run the `pihole_email_after_restart.py` file every Saturday morning at 2:30AM.
    - Use [crontab.guru](https://crontab.guru/) if you'd like to adjust when these scripts run.
 1. Now press <kbd>[^X]</kbd>, <kbd>[y]</kbd> and <kbd>[return]</kbd> to save your changes and exit the file.
 1. Validate that the file saved by running `sudo crontab -l` in your terminal. You should see the values that you entered
+
+## Helpful
+
+- SSH into your Rasberry Pi
+   - `ssh PI_USER_NAME@PI_IP_ADDRESS`
+- Copy files from your local machine to your Raspberry Pi via SSH
+   - `scp ./pihole_update.sh PI_USER_NAME@PI_IP_ADDRESS:pihole_update.sh`
+   - `scp ./pihole_email_before_restart.py PI_USER_NAME@PI_IP_ADDRESS:pihole_email_before_restart.py`
+   - `scp ./pihole_email_after_restart.py PI_USER_NAME@PI_IP_ADDRESS:pihole_email_after_restart.py`
+   - `scp ./pihole_configs.example.json PI_USER_NAME@PI_IP_ADDRESS:pihole_configs.example.json`
+- Copy files from your Raspberry Pi to your local machine via SSH
+   - `scp PI_USER_NAME@PI_IP_ADDRESS:pihole.log ./pihole.log`
+- Watch the *pihole.log* in real time as the update script is running (typically used when manually intiating the update script)
+   - `tail -f pihole.log`
 
 ## To Do / Consideration
 
