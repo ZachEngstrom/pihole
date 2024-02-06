@@ -76,12 +76,9 @@ You can now run this script any time by running `./pihole_update.sh` in your ter
 - SSH into your Rasberry Pi
    - `ssh PI_USER_NAME@PI_IP_ADDRESS`
 - Copy files from your local machine to your Raspberry Pi via SSH
-   - `scp ./pihole_update.sh PI_USER_NAME@PI_IP_ADDRESS:pihole_update.sh`
-   - `scp ./pihole_email_before_restart.py PI_USER_NAME@PI_IP_ADDRESS:pihole_email_before_restart.py`
-   - `scp ./pihole_email_after_restart.py PI_USER_NAME@PI_IP_ADDRESS:pihole_email_after_restart.py`
-   - `scp ./pihole_configs.example.json PI_USER_NAME@PI_IP_ADDRESS:pihole_configs.example.json`
+   - `scp pihole_update.sh pihole_email_before_restart.py pihole_email_after_restart.py pihole_configs.example.json PI_USER_NAME@PI_IP_ADDRESS:~`
 - Copy files from your Raspberry Pi to your local machine via SSH
-   - `scp PI_USER_NAME@PI_IP_ADDRESS:pihole.log ./pihole.log`
+   - `scp PI_USER_NAME@PI_IP_ADDRESS:pihole.log ./`
 - Watch the *pihole.log* in real time as the update script is running (typically used when manually intiating the update script)
    - `tail -f pihole.log`
 
