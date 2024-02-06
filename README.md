@@ -6,29 +6,40 @@
 |_|  |___|_| |_|\___/|_____|_____|
 ```
 
-## Description
+## Overview
 
-This repository assumes that you have [PiHole](https://docs.pi-hole.net/) up and running. Consider using the instructional written by [CrossTalk Solutions](https://www.crosstalksolutions.com/the-worlds-greatest-pi-hole-and-unbound-tutorial-2023/) for the initial setup. The [YouTube video](https://youtu.be/cE21YjuaB6o) worked well for me.
+This repository provides scripts and configuration files to automate [PiHole](https://docs.pi-hole.net/) updates, email notifications, and more, keeping your network secure and ad-free with minimal manual intervention.
 
-## Ad Lists
+### Key Features
 
-As recommended in the [CrossTalk Solutions](https://www.crosstalksolutions.com/the-worlds-greatest-pi-hole-and-unbound-tutorial-2023/) tutorial, I referenced [The Firebog](https://firebog.net/) for a majority of the lists that I implemented.
+- Automated Updates:
+   - Refreshes package lists
+   - Installs upgrades
+   - Removes unused dependencies
+   - Updates Pi-hole itself
+   - Updates gravity lists
+   - Restarts Raspberry Pi
+- Informative Email Notifications:
+   - Pre-update email with uptime information (potentially additional metrics to be added)
+   - Post-update email with uptime information (potentially additional metrics to be added)
+- Comprehensive Documentation:
+   - Clear setup instructions with links to external resources
+   - Helpful tips for SSH access, file transfer, and log monitoring
 
-Here is a complete list of the ad lists that I've implemented:
-- <https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts>
-- <https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt>
-- <https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts>
-- <https://adaway.org/hosts.txt>
-- <https://v.firebog.net/hosts/AdguardDNS.txt>
-- <https://v.firebog.net/hosts/Easyprivacy.txt>
-- <https://v.firebog.net/hosts/Prigent-Ads.txt>
-- <https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt>
-- <https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt>
-- <https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser>
+## Prerequisites
 
-I did have to whitelist `slackb.com` to use slack on my network.
+- Active Pi-hole installation
+   - Consider using the instructional written by [CrossTalk Solutions](https://www.crosstalksolutions.com/the-worlds-greatest-pi-hole-and-unbound-tutorial-2023/) for the initial setup. The [YouTube video](https://youtu.be/cE21YjuaB6o) worked well for me.
+- Basic knowledge of Linux terminal commands
 
-## Automation
+## Getting Started
+
+1. Clone this repository to your Raspberry Pi or server.
+   - Github: `git clone https://github.com/ZachEngstrom/pihole.git`
+   - Gitlab: `git clone https://gitlab.com/engza/pihole.git`
+1. Follow the instructions below
+
+### Automation
 
 1. Sends an email before updates to let you know the uptime of the Raspberry Pi (possibly more metrics to be added later).
 1. Refreshes the local list of available packages, ensuring you have the latest information from repositories.
@@ -41,33 +52,33 @@ I did have to whitelist `slackb.com` to use slack on my network.
 
 Here are the steps that I took to make my PiHole self-sufficient:
 
-### Send an Email using Python
+#### Send an Email using Python
 
 1. Read through the entire [Send an Email using Python](./docs/smtp.md) document and then go back and follow the instructions up until "The Email-Sending Script".
 1. Copy these 3 files to the root of your Raspberry Pi or server:
-   - [pihole\_configs.example.json](./pihole_configs.example.json)
-   - [pihole\_email\_before\_restart.py](./pihole_email_before_restart.py)
-   - [pihole\_email\_after\_restart.py](./pihole_email_after_restart.py)
-1. Set the configs file by running `mv pihole_configs.example.json pihole_configs.json` in your terminal and then `sudo nano pihole_configs.json`.
-1. Use your arrow keys to navigate to the values, remove the `REPLACE_WITH_THE_...` text and then fill in the appropriate values.
-1. You created the `from_addr` and `from_pass` when you followed the [Send an Email using Python](./docs/smtp.md) document.
-1. For the `to_addr`, I get the email message as a text to my phone. Here are some examples of how to do with with major cellular providers. Remember to replace "REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER" with your cell phone number:
-   - **AT&T**: REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER@txt.att.net
-   - **Verizon**: REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER@vtext.com
-   - **T-Mobile**: REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER@tmomail.net
-   - [notepage.net/smtp.htm](https://www.notepage.net/smtp.htm)
-   - [avtech.com/articles/138/list-of-email-to-sms-addresses](https://avtech.com/articles/138/list-of-email-to-sms-addresses/)
-1. Once you have all 3 values filled in, you can press <kbd>[^X]</kbd>, <kbd>[y]</kbd> and <kbd>[return]</kbd> to save your changes and exit the file.
+   - `cp pihole/pihole_configs.example.json pihole_configs.json`
+   - `cp pihole/pihole_email_before_restart.py pihole_email_before_restart.py`
+   - `cp pihole/pihole_email_after_restart.py pihole_email_after_restart.py`
+1. Edit the configs file - `sudo nano pihole_configs.json`.
+   1. Use your arrow keys to navigate to the values, remove the `REPLACE_WITH_THE_...` text and then fill in the appropriate values.
+   1. You created the `from_addr` and `from_pass` when you followed the [Send an Email using Python](./docs/smtp.md) document.
+   1. For the `to_addr`, I get the email message as a text to my phone. Here are some examples of how to do with with major cellular providers. Remember to replace "REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER" with your cell phone number:
+      - **AT&T**: REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER@txt.att.net
+      - **Verizon**: REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER@vtext.com
+      - **T-Mobile**: REPLACE_WITH_YOUR_TEN_DIGIT_PHONE_NUMBER@tmomail.net
+      - [notepage.net/smtp.htm](https://www.notepage.net/smtp.htm)
+      - [avtech.com/articles/138/list-of-email-to-sms-addresses](https://avtech.com/articles/138/list-of-email-to-sms-addresses/)
+   1. Once you have all 3 values filled in, you can press <kbd>[^X]</kbd>, <kbd>[y]</kbd> and <kbd>[return]</kbd> to save your changes and exit the file.
 1. Test that the email files work by running `python pihole_email_before_restart.py` and `python pihole_email_after_restart.py` in your terminal and then either checking your inbox or watching your phone for a text (depending on the value you entered for the `to_addr`).
 
-### Update Script Using Bash
+#### Update Script Using Bash
 
-1. Copy the [pihole_update.sh](./pihole_update.sh) file to the root of your Raspberry Pi or server. No editing necessary.
+1. Run `cp pihole/pihole_update.sh pihole_update.sh`
 1. Run `sudo chmod +x ./pihole_update.sh` to make the file executable.
 
 You can now run this script any time by running `./pihole_update.sh` in your terminal.
 
-### Automatically Update and Send Emails Using Cron
+#### Automatically Update and Send Emails Using Cron
 
 1. Run `sudo crontab -e` in your terminal
 1. Add the following code to the end of the file:<br><pre>55 1 * * 6 python pihole\_email\_before\_restart.py
@@ -91,6 +102,28 @@ You can now run this script any time by running `./pihole_update.sh` in your ter
 - Watch the *pihole.log* in real time as the update script is running (typically used when manually intiating the update script)
    - `tail -f pihole.log`
 
+## Ad Lists
+
+As recommended in the [CrossTalk Solutions](https://www.crosstalksolutions.com/the-worlds-greatest-pi-hole-and-unbound-tutorial-2023/) tutorial, I referenced [The Firebog](https://firebog.net/) for a majority of the lists that I implemented.
+
+Here is a complete list of the ad lists that I've implemented:
+- <https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts>
+- <https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt>
+- <https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts>
+- <https://adaway.org/hosts.txt>
+- <https://v.firebog.net/hosts/AdguardDNS.txt>
+- <https://v.firebog.net/hosts/Easyprivacy.txt>
+- <https://v.firebog.net/hosts/Prigent-Ads.txt>
+- <https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt>
+- <https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt>
+- <https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser>
+
+I did have to whitelist `slackb.com` to use slack on my network.
+
 ## To Do / Consideration
 
 - Set the email pass as an environment variable instead of in the config file - [Python Environment Variables](https://networkdirection.net/python/resources/env-variable/)
+
+## Contributions and Feedback
+
+All contributions and suggestions are welcome! Please create an issue or pull request on GitHub or Gitlab.
