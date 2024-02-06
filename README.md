@@ -30,7 +30,16 @@ I did have to whitelist `slackb.com` to use slack on my network.
 
 ## Automation
 
-Here are the steps that I took to make my PiHole self-sufficient.
+1. Sends an email before updates to let you know the uptime of the Raspberry Pi (possibly more metrics to be added later).
+1. Refreshes the local list of available packages, ensuring you have the latest information from repositories.
+1. Downloads and installs all available upgrades for the packages.
+1. Removes any automatically installed, unused dependency packages that are no longer needed. This helps reclaim disk space and potentially improve system performance.
+1. Specifically updates the Pi-hole software itself, ensuring you have the latest security fixes and features.
+1. Updates the gravity lists, which are essential for Pi-hole's ad-blocking capabilities.
+1. Restarts your Raspberry Pi.
+1. Sends an email after updates to let you know the uptime of the Raspberry Pi (possibly more metrics to be added later).
+
+Here are the steps that I took to make my PiHole self-sufficient:
 
 ### Send an Email using Python
 
