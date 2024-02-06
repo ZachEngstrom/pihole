@@ -27,6 +27,24 @@ The Pi-hole® is a DNS sinkhole that protects your devices from unwanted content
 - **Modern**: blocks ads over both IPv4 and IPv6
 - **Free**: open-source software which helps ensure you are the sole person in control of your privacy
 
+## Ad Lists
+
+As recommended in the [CrossTalk Solutions](https://www.crosstalksolutions.com/the-worlds-greatest-pi-hole-and-unbound-tutorial-2023/) tutorial, I referenced [The Firebog](https://firebog.net/) for a majority of the lists that I implemented.
+
+Here is a complete list of the ad lists that I've implemented:
+- <https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts>
+- <https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt>
+- <https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts>
+- <https://adaway.org/hosts.txt>
+- <https://v.firebog.net/hosts/AdguardDNS.txt>
+- <https://v.firebog.net/hosts/Easyprivacy.txt>
+- <https://v.firebog.net/hosts/Prigent-Ads.txt>
+- <https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt>
+- <https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt>
+- <https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser>
+
+I did have to whitelist `slackb.com` to use slack on my network.
+
 ## Automation
 
 Here are the steps that I took to make my PiHole self-sufficient.
@@ -64,24 +82,6 @@ Here are the steps that I took to make my PiHole self-sufficient.
    - Use [crontab.guru](https://crontab.guru/) if you'd like to adjust when these scripts run.
 1. Now press <kbd>[^X]</kbd>, <kbd>[y]</kbd> and <kbd>[return]</kbd> to save your changes and exit the file.
 1. Validate that the file saved by running `sudo crontab -l` in your terminal. You should see the values that you entered
-
-## Ad Lists
-
-As recommended in the [CrossTalk Solutions](https://www.crosstalksolutions.com/the-worlds-greatest-pi-hole-and-unbound-tutorial-2023/) tutorial, I referenced [The Firebog](https://firebog.net/) for a majority of the lists that I implemented.
-
-Here is a complete list of the ad lists that I've implemented:
-- <https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts>
-- <https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt>
-- <https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Spam/hosts>
-- <https://adaway.org/hosts.txt>
-- <https://v.firebog.net/hosts/AdguardDNS.txt>
-- <https://v.firebog.net/hosts/Easyprivacy.txt>
-- <https://v.firebog.net/hosts/Prigent-Ads.txt>
-- <https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt>
-- <https://osint.digitalside.it/Threat-Intel/lists/latestdomains.txt>
-- <https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser>
-
-I did have to whitelist `slackb.com` to use slack on my network.
 
 ## To Do / Consideration
 
