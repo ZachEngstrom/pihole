@@ -56,7 +56,11 @@ msg = EmailMessage()
 ##
 # Set the email body
 ##
-body = "Uptime: "+uptime_formatted+", Download Speed: "+dl_speed_mb+", Upload Speed: "+ul_speed_mb
+body = """
+Uptime: {uptime_formatted}
+Download Speed: {dl_speed_mb}
+Upload Speed: {ul_speed_mb}
+""".format(uptime_formatted=uptime_formatted,dl_speed_mb=dl_speed_mb,ul_speed_mb=ul_speed_mb)
 msg.set_content(body)
 
 ##
