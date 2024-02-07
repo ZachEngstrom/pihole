@@ -37,6 +37,8 @@ This repository provides scripts and configuration files to automate [PiHole](ht
 1. Clone this repository to your Raspberry Pi or server.
    - Github: `git clone https://github.com/ZachEngstrom/pihole.git`
    - Gitlab: `git clone https://gitlab.com/engza/pihole.git`
+1. Install [Speedtest CLI](https://github.com/sivel/speedtest-cli)
+   - run `pip install speedtest-cli`
 1. Follow the instructions below
 
 #### Send an Email using Python
