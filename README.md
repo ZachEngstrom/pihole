@@ -55,7 +55,7 @@ This repository provides scripts and configuration files to automate [PiHole](ht
       - [notepage.net/smtp.htm](https://www.notepage.net/smtp.htm)
       - [avtech.com/articles/138/list-of-email-to-sms-addresses](https://avtech.com/articles/138/list-of-email-to-sms-addresses/)
    1. Once you have all 3 values filled in, you can press <kbd>[^X]</kbd>, <kbd>[y]</kbd> and <kbd>[return]</kbd> to save your changes and exit the file.
-1. Test that the email files work by running `python pihole_email_before_restart.py` and `python pihole_email_after_restart.py` in your terminal and then either checking your inbox or watching your phone for a text (depending on the value you entered for the `to_addr`).
+1. Test that the email files work by running<br>`python pihole_email_before_restart.py "$(cat /proc/uptime)" "$(speedtest-cli --csv)"`<br>and<br>`python pihole_email_after_restart.py "$(cat /proc/uptime)" "$(speedtest-cli --csv)"`<br>in your terminal and then either checking your inbox or watching your phone for a text (depending on the value you entered for the `to_addr`).
 
 #### Update Script Using Bash
 
