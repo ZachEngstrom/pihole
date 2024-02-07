@@ -19,7 +19,7 @@ def get_time(seconds):
 
 def convert_size(size_bits):
    if size_bits == 0:
-       return "0B"
+       return "0 Bps"
    size_name = ("Kbps", "Mbps", "Gbps", "Tbps", "Pbps")
    i = int(math.floor(math.log(size_bits, 1000000)))
    p = math.pow(1000000, i)
