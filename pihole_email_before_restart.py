@@ -31,7 +31,7 @@ def convert_size(size_bits):
 ##
 proc_uptime = sys.argv[1]
 uptime_seconds = proc_uptime.split(' ',1)[0]
-uptime_formatted = get_time(uptime_seconds)
+uptime_formatted = get_time(float(uptime_seconds))
 
 ##
 # Get speedtest results using `speedtest-cli --csv`
