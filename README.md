@@ -42,7 +42,7 @@ This repository provides scripts and configuration files to automate [PiHole](ht
 #### Send an Email using Python
 
 1. Run this command in the root of your Raspberry Pi or server:<br>`cp pihole/{pihole_configs.example.json,pihole_email_before_restart.py,pihole_email_after_restart.py} ./ && mv pihole_configs.example.json pihole_configs.json`
-1. [Send an Email using Python](./docs/smtp.md) - follow the instructions through creating an email app password.
+1. Create a new email account and an email app password by following these instructions: [Send an Email using Python](./docs/smtp.md). You can stop when you get to "The Email-Sending Script".
 1. Edit the configs file - `sudo nano pihole_configs.json`
    1. Use your arrow keys to navigate to the 3 values, remove the `REPLACE_WITH_THE_...` text and then fill in the appropriate values.
    1. You created the `from_addr` and `from_pass` values when you followed the [Send an Email using Python](./docs/smtp.md) document.
