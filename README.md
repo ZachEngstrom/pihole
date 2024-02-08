@@ -108,7 +108,8 @@ I did have to whitelist `slackb.com` to use slack on my network.
 
 ## To Do / Consideration
 
-- Set the email pass as an environment variable instead of in the config file - [Python Environment Variables](https://networkdirection.net/python/resources/env-variable/)
+- [ ] Set the email app password as an [environment variable](https://networkdirection.net/python/resources/env-variable/) instead of in the config file.
+- [ ] Email python files don't have a fall back for null/empty values. This should be addressed.
 
 ## Contributions and Feedback
 
