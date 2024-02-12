@@ -66,7 +66,7 @@ You can now run this script any time by running `./pihole_update.sh` in your ter
 
 #### Automatically Update and Send Emails Using Cron
 
-1. Run `sudo crontab -e` in your terminal
+1. Run `crontab -e` in your terminal
 1. Add the following code to the end of the file:<br><pre>55 1 * * 6 python pihole\_email\_before\_restart.py "$(cat /proc/uptime)" "$(speedtest-cli --csv)"
 0 2 * * 6 ./pihole_update.sh >> pihole.log 2>&1
 30 2 * * 6 python pihole\_email\_after\_restart.py "$(cat /proc/uptime)" "$(speedtest-cli --csv)"</pre>
@@ -74,7 +74,7 @@ You can now run this script any time by running `./pihole_update.sh` in your ter
    - The 2nd line runs `pihole_update.sh` every Saturday at 2:00 AM and captures the output in the `pihole.log` file (it will automatically get created if it's not already there).
    - The 3rd line runs `pihole_email_after_restart.py` every Saturday at 2:30 AM.
 1. Now press <kbd>[^X]</kbd>, <kbd>[y]</kbd> and <kbd>[return]</kbd> to save your changes and exit the file.
-1. Validate that the file saved by running `sudo crontab -l` in your terminal. You should see the lines that you added.
+1. Validate that the file saved by running `crontab -l` in your terminal. You should see the lines that you added.
 
 ## Helpful
 
