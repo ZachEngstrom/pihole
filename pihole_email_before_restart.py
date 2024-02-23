@@ -6,16 +6,27 @@ import json
 import math
 import smtplib
 import sys
+import os
 from datetime import datetime, timedelta
 from email.message import EmailMessage
 
 with open('pihole_configs.json', 'r') as file:
     config = json.load(file)
 
-def get_time(seconds):
-    sec = timedelta(seconds=int(seconds))
-    d = datetime(1,1,1) + sec
-    return "%d days %d hours %d minutes %d seconds" % (d.day-1, d.hour, d.minute, d.second)
+##
+# Converts seconds to days, hours, minutes, and seconds.
+#  Args:
+#    seconds: The number of seconds to convert.
+#  Returns:
+#    A tuple containing the number of days, hours, minutes, and seconds.
+##
+def seconds_to_dhms(seconds):
+    days = int(seconds // 86400)
+    hours = int((seconds % 86400) // 3600)
+    minutes = int((seconds % 3600) // 60)
+    seconds = int(seconds % 60)
+    formatted_time = f"{days} days {hours} hours {minutes} minutes {seconds} seconds"
+    return formatted_time
 
 def convert_size(size_bits):
    if size_bits == 0:
@@ -27,11 +38,16 @@ def convert_size(size_bits):
    return "%s %s" % (s, size_name[i])
 
 ##
-# Get uptime using `cat /proc/uptime`
+# 1. Get server uptime from the '/proc/uptime' file
+# 2. Two values are returned, so assign them to unique variables
+# 3. Use the 'seconds_to_dhms' function to output human readable uptime and
+#    assign them to the 'uptime_string' variable
 ##
-proc_uptime = sys.argv[1]
-uptime_seconds = proc_uptime.split(' ',1)[0]
-uptime_formatted = get_time(float(uptime_seconds))
+with open("/proc/uptime", "r") as uptime_file:
+    uptime_data = uptime_file.read().strip().split()
+total_uptime = float(uptime_data[0])
+idle_time = float(uptime_data[1])
+uptime_string=seconds_to_dhms(total_uptime)
 
 ##
 # Get speedtest results using `speedtest-cli --csv`
@@ -58,10 +74,10 @@ msg = EmailMessage()
 ##
 body = """
 Uptime:
-{uptime_formatted}
+{uptime_string}
 Download Speed: {dl_speed_mb}
 Upload Speed: {ul_speed_mb}
-""".format(uptime_formatted=uptime_formatted,dl_speed_mb=dl_speed_mb,ul_speed_mb=ul_speed_mb)
+""".format(uptime_string=uptime_string,dl_speed_mb=dl_speed_mb,ul_speed_mb=ul_speed_mb)
 msg.set_content(body)
 
 ##
