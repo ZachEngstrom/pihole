@@ -5,9 +5,6 @@
 import json
 import math
 import smtplib
-import sys
-import os
-from datetime import datetime, timedelta
 from email.message import EmailMessage
 from speedtest import Speedtest
 
@@ -29,19 +26,17 @@ def seconds_to_dhms(seconds):
     formatted_time = f"{days} days {hours} hours {minutes} minutes {seconds} seconds"
     return formatted_time
 
+##
+# Converts bits to megabits
+#  Args:
+#    speed: The number in bits to convert to megabits.
+#  Returns:
+#    The number in bits converted to megabits.
+##
 def format_speed(speed):
     mbps = speed / 1024 / 1024
     formatted_speed = round(mbps, 2)
     return formatted_speed
-
-def convert_size(size_bits):
-   if size_bits == 0:
-       return "0 Bps"
-   size_name = ("Kbps", "Mbps", "Gbps", "Tbps", "Pbps")
-   i = int(math.floor(math.log(size_bits, 1000000)))
-   p = math.pow(1000000, i)
-   s = round(size_bits / p, 2)
-   return "%s %s" % (s, size_name[i])
 
 ##
 # 1. Get server uptime from the '/proc/uptime' file
@@ -56,7 +51,7 @@ idle_time = float(uptime_data[1])
 uptime_string=seconds_to_dhms(total_uptime)
 
 ##
-# Get speedtest results using `speedtest-cli --csv`
+# Get speedtest results
 ##
 speedtest = Speedtest()
 download_result = speedtest.download()
