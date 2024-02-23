@@ -3,7 +3,6 @@
 ##
 
 import json
-import math
 import smtplib
 from email.message import EmailMessage
 from speedtest import Speedtest
