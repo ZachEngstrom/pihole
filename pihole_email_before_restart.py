@@ -33,6 +33,8 @@ def seconds_to_dhms(seconds):
 #    The number in bits converted to megabits.
 ##
 def format_speed(speed):
+    if not speed or not isinstance(speed, (int, float)):
+        return "N/A"
     mbps = speed / 1024 / 1024
     formatted_speed = round(mbps, 2)
     return formatted_speed
