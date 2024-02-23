@@ -9,6 +9,7 @@ import sys
 import os
 from datetime import datetime, timedelta
 from email.message import EmailMessage
+from speedtest import Speedtest
 
 with open('pihole_configs.json', 'r') as file:
     config = json.load(file)
@@ -27,6 +28,11 @@ def seconds_to_dhms(seconds):
     seconds = int(seconds % 60)
     formatted_time = f"{days} days {hours} hours {minutes} minutes {seconds} seconds"
     return formatted_time
+
+def format_speed(speed):
+    mbps = speed / 1024 / 1024
+    formatted_speed = round(mbps, 2)
+    return formatted_speed
 
 def convert_size(size_bits):
    if size_bits == 0:
@@ -52,10 +58,11 @@ uptime_string=seconds_to_dhms(total_uptime)
 ##
 # Get speedtest results using `speedtest-cli --csv`
 ##
-speedtest_full = sys.argv[2]
-speedtest_split = speedtest_full.split(',')
-dl_speed_mb = convert_size(float(speedtest_split[6]))
-ul_speed_mb = convert_size(float(speedtest_split[7]))
+speedtest = Speedtest()
+download_result = speedtest.download()
+upload_result = speedtest.upload()
+formatted_download = f"Download Speed: {format_speed(download_result)} Mbps"
+formatted_upload = f"Upload Speed: {format_speed(upload_result)} Mbps"
 
 ##
 # Set the sender email and password and recipient email
@@ -75,9 +82,9 @@ msg = EmailMessage()
 body = """
 Uptime:
 {uptime_string}
-Download Speed: {dl_speed_mb}
-Upload Speed: {ul_speed_mb}
-""".format(uptime_string=uptime_string,dl_speed_mb=dl_speed_mb,ul_speed_mb=ul_speed_mb)
+Download Speed: {formatted_download}
+Upload Speed: {formatted_upload}
+""".format(uptime_string=uptime_string,formatted_download=formatted_download,formatted_upload=formatted_upload)
 msg.set_content(body)
 
 ##
