@@ -55,7 +55,7 @@ This repository provides scripts and configuration files to automate [PiHole](ht
       - [notepage.net/smtp.htm](https://www.notepage.net/smtp.htm)
       - [avtech.com/articles/138/list-of-email-to-sms-addresses](https://avtech.com/articles/138/list-of-email-to-sms-addresses/)
    1. Once you have all 3 values filled in, you can press <kbd>[^X]</kbd>, <kbd>[y]</kbd> and <kbd>[return]</kbd> to save your changes and exit the file.
-1. Test that the email files work by running<br>`python pihole_email_before_restart.py "$(cat /proc/uptime)" "$(speedtest-cli --csv)"`<br>and<br>`python pihole_email_after_restart.py "$(cat /proc/uptime)" "$(speedtest-cli --csv)"`<br>in your terminal and then either checking your inbox or watching your phone for a text (depending on the value you entered for the `to_addr`).
+1. Test that the email files work by running<br>`python pihole_email_before_restart.py`<br>and<br>`python pihole_email_after_restart.py`<br>in your terminal and then either checking your inbox or watching your phone for a text (depending on the value you entered for the `to_addr`).
 
 #### Update Script Using Bash
 
@@ -67,9 +67,9 @@ You can now run this script any time by running `./pihole_update.sh` in your ter
 #### Automatically Update and Send Emails Using Cron
 
 1. Run `crontab -e` in your terminal
-1. Add the following code to the end of the file:<br><pre>55 1 * * 6 python pihole\_email\_before\_restart.py "$(cat /proc/uptime)" "$(speedtest-cli --csv)"
+1. Add the following code to the end of the file:<br><pre>55 1 * * 6 python pihole\_email\_before\_restart.py
 0 2 * * 6 ./pihole_update.sh >> pihole.log 2>&1
-30 2 * * 6 python pihole\_email\_after\_restart.py "$(cat /proc/uptime)" "$(speedtest-cli --csv)"</pre>
+30 2 * * 6 python pihole\_email\_after\_restart.py</pre>
    - The 1st line runs `pihole_email_before_restart.py` every Saturday at 1:55 AM.
    - The 2nd line runs `pihole_update.sh` every Saturday at 2:00 AM and captures the output in the `pihole.log` file (it will automatically get created if it's not already there).
    - The 3rd line runs `pihole_email_after_restart.py` every Saturday at 2:30 AM.
