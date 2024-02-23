@@ -1,5 +1,5 @@
 ##
-# Complete Project Details: https://RandomNerdTutorials.com/raspberry-pi-send-email-python-smtp-server/
+# Based on: https://RandomNerdTutorials.com/raspberry-pi-send-email-python-smtp-server/
 ##
 
 import json
