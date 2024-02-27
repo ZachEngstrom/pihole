@@ -25,6 +25,10 @@ printf "\n[%s] INFO: running 'sudo pihole -g'\n\n" "$(datetime)"
 sudo pihole -g
 
 printf "\n[%s] INFO: pihole update finished\n\n" "$(datetime)"
+
+printf "[%s] INFO: running 'sudo service cron restart\n\n" "$(datetime)"
+sudo service cron restart
+
 printf "[%s] INFO: running 'sudo reboot'\n\n" "$(datetime)"
 printf "********************************************************************************\n\n"
 sudo reboot
