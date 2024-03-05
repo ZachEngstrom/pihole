@@ -26,7 +26,7 @@ sudo pihole -g
 
 printf "\n[%s] INFO: pihole update finished\n\n" "$(datetime)"
 
-printf "[%s] INFO: running 'sudo service cron restart\n\n" "$(datetime)"
+printf "[%s] INFO: running 'sudo service cron restart'\n\n" "$(datetime)"
 sudo service cron restart
 
 printf "[%s] INFO: running 'sudo reboot'\n\n" "$(datetime)"
