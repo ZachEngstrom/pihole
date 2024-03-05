@@ -29,6 +29,20 @@ printf "\n[%s] INFO: pihole update finished\n\n" "$(datetime)"
 printf "[%s] INFO: running 'sudo service cron restart'\n\n" "$(datetime)"
 sudo service cron restart
 
+printf "[%s] INFO: formatting pihole.log file\n\n" "$(datetime)"
+# Remove "WARNING: apt does not have a stable CLI interface. Use with caution in scripts."
+sed -i '/apt does not have a stable/d' pihole.log
+# Remove empty lines
+sed -i '/^$/d' pihole.log
+# Insert empty line before pattern match for "***"
+sed -i '/\*\*\*/i \
+
+' pihole.log
+# Insert empty line after pattern match for "***"
+sed -i '/\*\*\*/a\
+
+' pihole.log
+
 printf "[%s] INFO: running 'sudo reboot'\n\n" "$(datetime)"
 printf "********************************************************************************\n\n"
 sudo reboot
