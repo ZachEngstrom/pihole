@@ -84,6 +84,14 @@ Uptime:
 msg.set_content(body)
 
 ##
+# Add attachment
+##
+with open("pihole.log", "rb") as attachment:
+    file_data = attachment.read()
+    file_name = "pihole.log.txt"
+msg.add_attachment(file_data, maintype="application", subtype="octet-stream", filename=file_name)
+
+##
 # Set sender and recipient
 ##
 msg['From'] = from_email_addr
